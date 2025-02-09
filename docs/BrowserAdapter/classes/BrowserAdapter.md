@@ -1,12 +1,12 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../README.md)
+[**Browser Adapter Documentation v0.0.2**](../../README.md)
 
 ***
 
-[AWS Lambda Adapter Documentation](../../modules.md) / [BrowserAdapter](../README.md) / BrowserAdapter
+[Browser Adapter Documentation](../../modules.md) / [BrowserAdapter](../README.md) / BrowserAdapter
 
 # Class: BrowserAdapter
 
-Defined in: [src/BrowserAdapter.ts:40](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/BrowserAdapter.ts#L40)
+Defined in: [browser-adapter/src/BrowserAdapter.ts:39](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserAdapter.ts#L39)
 
 Browser Adapter for Stone.js.
 
@@ -61,7 +61,7 @@ await adapter.run();
 
 ## Extends
 
-- `Adapter`\<[`BrowserEvent`](../../declarations/type-aliases/BrowserEvent.md), [`BrowserResponse`](../../declarations/type-aliases/BrowserResponse.md), [`BrowserContext`](../../declarations/type-aliases/BrowserContext.md), [`IncomingBrowserEvent`](../../events/IncomingBrowserEvent/classes/IncomingBrowserEvent.md), [`IncomingBrowserEventOptions`](../../events/IncomingBrowserEvent/interfaces/IncomingBrowserEventOptions.md), [`OutgoingBrowserResponse`](../../events/OutgoingBrowserResponse/classes/OutgoingBrowserResponse.md), [`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)\>
+- `Adapter`\<[`BrowserEvent`](../../declarations/type-aliases/BrowserEvent.md), [`BrowserResponse`](../../declarations/type-aliases/BrowserResponse.md), [`BrowserContext`](../../declarations/type-aliases/BrowserContext.md), `IncomingBrowserEvent`, `IncomingBrowserEventOptions`, `OutgoingBrowserResponse`, [`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)\>
 
 ## Constructors
 
@@ -69,7 +69,7 @@ await adapter.run();
 
 > `protected` **new BrowserAdapter**(`options`): [`BrowserAdapter`](BrowserAdapter.md)
 
-Defined in: node\_modules/@stone-js/core/dist/index.d.ts:1876
+Defined in: core/dist/index.d.ts:2631
 
 Create an Adapter.
 
@@ -77,7 +77,7 @@ Create an Adapter.
 
 ##### options
 
-`AdapterOptions`\<[`IncomingBrowserEvent`](../../events/IncomingBrowserEvent/classes/IncomingBrowserEvent.md), [`OutgoingBrowserResponse`](../../events/OutgoingBrowserResponse/classes/OutgoingBrowserResponse.md)\>
+`AdapterOptions`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
 
 Adapter options.
 
@@ -89,13 +89,119 @@ Adapter options.
 
 `Adapter< BrowserEvent, BrowserResponse, BrowserContext, IncomingBrowserEvent, IncomingBrowserEventOptions, OutgoingBrowserResponse, BrowserAdapterContext >.constructor`
 
+## Properties
+
+### blueprint
+
+> `protected` `readonly` **blueprint**: `IBlueprint`\<`any`\>
+
+Defined in: core/dist/index.d.ts:2623
+
+#### Inherited from
+
+`Adapter.blueprint`
+
+***
+
+### handlerResolver
+
+> `protected` `readonly` **handlerResolver**: `AdapterEventHandlerResolver`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+Defined in: core/dist/index.d.ts:2624
+
+#### Inherited from
+
+`Adapter.handlerResolver`
+
+***
+
+### hooks
+
+> `protected` `readonly` **hooks**: `AdapterHooks`
+
+Defined in: core/dist/index.d.ts:2622
+
+#### Inherited from
+
+`Adapter.hooks`
+
+***
+
+### logger
+
+> `protected` `readonly` **logger**: `ILogger`
+
+Defined in: core/dist/index.d.ts:2621
+
+#### Inherited from
+
+`Adapter.logger`
+
 ## Methods
+
+### afterHandle()
+
+> `protected` **afterHandle**(`eventHandler`, `context`): `Promise`\<`void`\>
+
+Defined in: core/dist/index.d.ts:2681
+
+Hook that runs after handling each event.
+
+#### Parameters
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+Action handler to be run.
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`Adapter.afterHandle`
+
+***
+
+### beforeHandle()
+
+> `protected` **beforeHandle**(`eventHandler`): `Promise`\<`void`\>
+
+Defined in: core/dist/index.d.ts:2674
+
+Hook that runs before handling each event.
+
+#### Parameters
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+Action handler to be run.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`Adapter.beforeHandle`
+
+***
 
 ### eventListener()
 
-> `protected` **eventListener**(`eventHandler`, `rawEvent`, `executionContext`): `Promise`\<[`BrowserResponse`](../../declarations/type-aliases/BrowserResponse.md)\>
+> `protected` **eventListener**(`eventHandler`, `rawEvent`, `executionContext`): `Promise`\<`unknown`\>
 
-Defined in: [src/BrowserAdapter.ts:115](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/BrowserAdapter.ts#L115)
+Defined in: [browser-adapter/src/BrowserAdapter.ts:114](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserAdapter.ts#L114)
 
 Processes an incoming Browser event.
 
@@ -106,7 +212,7 @@ processes it through the pipeline, and generates a `RawResponse` to send back.
 
 ##### eventHandler
 
-`EventHandler`\<[`IncomingBrowserEvent`](../../events/IncomingBrowserEvent/classes/IncomingBrowserEvent.md), [`OutgoingBrowserResponse`](../../events/OutgoingBrowserResponse/classes/OutgoingBrowserResponse.md)\>
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
 
 ##### rawEvent
 
@@ -122,9 +228,61 @@ The Browser execution context for the event.
 
 #### Returns
 
-`Promise`\<[`BrowserResponse`](../../declarations/type-aliases/BrowserResponse.md)\>
+`Promise`\<`unknown`\>
 
 A promise resolving to the processed `RawResponse`.
+
+***
+
+### executeHooks()
+
+> `protected` **executeHooks**(`hook`, `context`?): `Promise`\<`void`\>
+
+Defined in: core/dist/index.d.ts:2695
+
+Execute lifecycle hooks.
+
+#### Parameters
+
+##### hook
+
+keyof `AdapterHooks`
+
+The hook to execute.
+
+##### context?
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`Adapter.executeHooks`
+
+***
+
+### makePipelineOptions()
+
+> `protected` **makePipelineOptions**(): `PipelineOptions`\<[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md), `IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`unknown`\>\>\>
+
+Defined in: core/dist/index.d.ts:2701
+
+Create pipeline options for the Adapter.
+
+#### Returns
+
+`PipelineOptions`\<[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md), `IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`unknown`\>\>\>
+
+The pipeline options for transforming the event.
+
+#### Inherited from
+
+`Adapter.makePipelineOptions`
 
 ***
 
@@ -132,7 +290,7 @@ A promise resolving to the processed `RawResponse`.
 
 > `protected` **onInit**(): `Promise`\<`void`\>
 
-Defined in: [src/BrowserAdapter.ts:97](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/BrowserAdapter.ts#L97)
+Defined in: [browser-adapter/src/BrowserAdapter.ts:96](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserAdapter.ts#L96)
 
 Initializes the adapter and validates its execution context.
 
@@ -153,11 +311,131 @@ If executed outside a Browser context (e.g., node).
 
 ***
 
+### onPrepare()
+
+> `protected` **onPrepare**(`eventHandler`): `Promise`\<`void`\>
+
+Defined in: core/dist/index.d.ts:2668
+
+Hook that runs before preparing the event context.
+
+#### Parameters
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+Action handler to be run.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`Adapter.onPrepare`
+
+***
+
+### onTerminate()
+
+> `protected` **onTerminate**(`eventHandler`, `context`): `Promise`\<`void`\>
+
+Defined in: core/dist/index.d.ts:2688
+
+Hook that runs after running the action handler.
+
+#### Parameters
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+Action handler to be run.
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`Adapter.onTerminate`
+
+***
+
+### prepareResponse()
+
+> `protected` **prepareResponse**(`eventHandler`, `context`): `Promise`\<`IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`unknown`\>\>\>
+
+Defined in: core/dist/index.d.ts:2716
+
+Prepare the response for the event handler.
+
+#### Parameters
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+The event handler to prepare the response for.
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+#### Returns
+
+`Promise`\<`IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`unknown`\>\>\>
+
+The raw response wrapper.
+
+#### Inherited from
+
+`Adapter.prepareResponse`
+
+***
+
+### resolveErrorHandler()
+
+> `protected` **resolveErrorHandler**(`error`): `IAdapterErrorHandler`\<[`BrowserEvent`](../../declarations/type-aliases/BrowserEvent.md), `unknown`, `Window` & *typeof* `globalThis`\>
+
+Defined in: core/dist/index.d.ts:2708
+
+Get the error handler for the given error.
+
+#### Parameters
+
+##### error
+
+`Error`
+
+The error to get the handler for.
+
+#### Returns
+
+`IAdapterErrorHandler`\<[`BrowserEvent`](../../declarations/type-aliases/BrowserEvent.md), `unknown`, `Window` & *typeof* `globalThis`\>
+
+The error handler.
+
+#### Inherited from
+
+`Adapter.resolveErrorHandler`
+
+***
+
 ### run()
 
 > **run**\<`ExecutionResultType`\>(): `Promise`\<`ExecutionResultType`\>
 
-Defined in: [src/BrowserAdapter.ts:72](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/BrowserAdapter.ts#L72)
+Defined in: [browser-adapter/src/BrowserAdapter.ts:71](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserAdapter.ts#L71)
 
 Executes the adapter and provides an Browser-compatible handler function.
 
@@ -182,11 +460,43 @@ If used outside the Browser environment.
 
 ***
 
+### sendEventThroughDestination()
+
+> `protected` **sendEventThroughDestination**(`eventHandler`, `context`): `Promise`\<`unknown`\>
+
+Defined in: core/dist/index.d.ts:2658
+
+Incoming message listener.
+
+#### Parameters
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+#### Returns
+
+`Promise`\<`unknown`\>
+
+Platform-specific output.
+
+#### Inherited from
+
+`Adapter.sendEventThroughDestination`
+
+***
+
 ### create()
 
 > `static` **create**(`options`): [`BrowserAdapter`](BrowserAdapter.md)
 
-Defined in: [src/BrowserAdapter.ts:60](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/BrowserAdapter.ts#L60)
+Defined in: [browser-adapter/src/BrowserAdapter.ts:59](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserAdapter.ts#L59)
 
 Creates an instance of the `BrowserAdapter`.
 
@@ -198,7 +508,7 @@ Browser usage.
 
 ##### options
 
-`AdapterOptions`\<[`IncomingBrowserEvent`](../../events/IncomingBrowserEvent/classes/IncomingBrowserEvent.md), [`OutgoingBrowserResponse`](../../events/OutgoingBrowserResponse/classes/OutgoingBrowserResponse.md)\>
+`AdapterOptions`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
 
 The configuration options for the adapter, including
                  handler resolver, error handling, and other settings.

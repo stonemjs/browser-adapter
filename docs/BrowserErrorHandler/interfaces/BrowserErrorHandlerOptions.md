@@ -1,12 +1,12 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../README.md)
+[**Browser Adapter Documentation v0.0.2**](../../README.md)
 
 ***
 
-[AWS Lambda Adapter Documentation](../../modules.md) / [BrowserErrorHandler](../README.md) / BrowserErrorHandlerOptions
+[Browser Adapter Documentation](../../modules.md) / [BrowserErrorHandler](../README.md) / BrowserErrorHandlerOptions
 
 # Interface: BrowserErrorHandlerOptions
 
-Defined in: [src/BrowserErrorHandler.ts:7](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/BrowserErrorHandler.ts#L7)
+Defined in: [browser-adapter/src/BrowserErrorHandler.ts:7](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserErrorHandler.ts#L7)
 
 BrowserErrorHandler options.
 
@@ -16,4 +16,4 @@ BrowserErrorHandler options.
 
 > **logger**: `ILogger`
 
-Defined in: [src/BrowserErrorHandler.ts:8](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/BrowserErrorHandler.ts#L8)
+Defined in: [browser-adapter/src/BrowserErrorHandler.ts:8](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserErrorHandler.ts#L8)

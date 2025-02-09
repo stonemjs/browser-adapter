@@ -1,14 +1,14 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../README.md)
+[**Browser Adapter Documentation v0.0.2**](../../README.md)
 
 ***
 
-[AWS Lambda Adapter Documentation](../../modules.md) / [constants](../README.md) / BROWSER\_PLATFORM
+[Browser Adapter Documentation](../../modules.md) / [constants](../README.md) / BROWSER\_PLATFORM
 
 # Variable: BROWSER\_PLATFORM
 
 > `const` **BROWSER\_PLATFORM**: `"browser"` = `'browser'`
 
-Defined in: [src/constants.ts:8](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/constants.ts#L8)
+Defined in: [browser-adapter/src/constants.ts:8](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/constants.ts#L8)
 
 A constant representing the browser platform identifier.
 

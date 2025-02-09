@@ -1,8 +1,9 @@
-import { IBlueprint } from '@stone-js/core'
 import { NextPipe } from '@stone-js/pipeline'
-import { CookieCollection } from '../cookies/CookieCollection'
+import { BROWSER_PLATFORM } from '../constants'
+import { classMiddleware, IBlueprint } from '@stone-js/core'
 import { BrowserAdapterError } from '../errors/BrowserAdapterError'
-import { BrowserAdapterResponseBuilder, BrowserAdapterContext, CookieOptions } from '../declarations'
+import { CookieCollection, CookieOptions } from '@stone-js/browser-core'
+import { BrowserAdapterResponseBuilder, BrowserAdapterContext } from '../declarations'
 
 /**
  * Middleware for handling incoming events and transforming them into Stone.js events.
@@ -40,7 +41,7 @@ export class IncomingEventMiddleware {
 
     context
       .incomingEventBuilder
-      .add('source', context.executionContext)
+      .add('source', this.getSource(context))
       .add('url', new URL(context.executionContext.location.href))
       .add('queryString', context.executionContext.location.search)
       .add('protocol', context.executionContext.location.protocol.replace(':', ''))
@@ -51,11 +52,30 @@ export class IncomingEventMiddleware {
   }
 
   /**
+   * Create the IncomingEventSource from the context.
+   *
+   * @param context - The adapter context containing the raw event, execution context, and other data.
+   * @returns The Incoming Event Source.
+   */
+  private getSource (context: BrowserAdapterContext): unknown {
+    return {
+      rawEvent: context.rawEvent,
+      platform: BROWSER_PLATFORM,
+      rawContext: context.executionContext
+    }
+  }
+
+  /**
    * Retrieves cookie-related options from the blueprint.
    *
    * @returns Cookie options.
    */
   private getCookieOptions (): CookieOptions {
-    return this.blueprint.get<CookieOptions>('stone.http.cookie.options', {})
+    return this.blueprint.get<CookieOptions>('stone.browser.cookie.options', {})
   }
 }
+
+/**
+ * Meta Middleware for processing incoming events.
+ */
+export const MetaIncomingEventMiddleware = classMiddleware(IncomingEventMiddleware)

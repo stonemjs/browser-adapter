@@ -1,14 +1,14 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../../README.md)
+[**Browser Adapter Documentation v0.0.2**](../../../README.md)
 
 ***
 
-[AWS Lambda Adapter Documentation](../../../modules.md) / [decorators/Browser](../README.md) / Browser
+[Browser Adapter Documentation](../../../modules.md) / [decorators/Browser](../README.md) / Browser
 
 # Function: Browser()
 
 > **Browser**\<`T`\>(`options`): `ClassDecorator`
 
-Defined in: [src/decorators/Browser.ts:35](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/decorators/Browser.ts#L35)
+Defined in: [browser-adapter/src/decorators/Browser.ts:35](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/decorators/Browser.ts#L35)
 
 A Stone.js decorator that integrates the Browser Adapter with a class.
 

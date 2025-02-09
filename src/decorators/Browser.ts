@@ -1,12 +1,12 @@
 import deepmerge from 'deepmerge'
 import { addBlueprint, classDecoratorLegacyWrapper, ClassType } from '@stone-js/core'
-import { browserAdapterBlueprint, BrowserAdapterConfig } from '../options/BrowserAdapterBlueprint'
+import { browserAdapterBlueprint, BrowserAdapterAdapterConfig } from '../options/BrowserAdapterBlueprint'
 
 /**
  * Configuration options for the `Browser` decorator.
  * These options extend the default Browser adapter configuration.
  */
-export interface BrowserOptions extends Partial<BrowserAdapterConfig> {}
+export interface BrowserOptions extends Partial<BrowserAdapterAdapterConfig> {}
 
 /**
  * A Stone.js decorator that integrates the Browser Adapter with a class.

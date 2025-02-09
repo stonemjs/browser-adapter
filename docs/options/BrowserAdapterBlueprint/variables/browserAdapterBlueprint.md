@@ -1,14 +1,14 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../../README.md)
+[**Browser Adapter Documentation v0.0.2**](../../../README.md)
 
 ***
 
-[AWS Lambda Adapter Documentation](../../../modules.md) / [options/BrowserAdapterBlueprint](../README.md) / browserAdapterBlueprint
+[Browser Adapter Documentation](../../../modules.md) / [options/BrowserAdapterBlueprint](../README.md) / browserAdapterBlueprint
 
 # Variable: browserAdapterBlueprint
 
 > `const` **browserAdapterBlueprint**: [`BrowserAdapterBlueprint`](../interfaces/BrowserAdapterBlueprint.md)
 
-Defined in: [src/options/BrowserAdapterBlueprint.ts:43](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/options/BrowserAdapterBlueprint.ts#L43)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:55](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L55)
 
 Default blueprint configuration for the Browser Adapter.
 

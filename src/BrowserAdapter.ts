@@ -1,10 +1,9 @@
 
 import { RawResponseWrapper } from './RawResponseWrapper'
 import { BrowserAdapterError } from './errors/BrowserAdapterError'
-import { OutgoingBrowserResponse } from './events/OutgoingBrowserResponse'
-import { IncomingBrowserEvent, IncomingBrowserEventOptions } from './events/IncomingBrowserEvent'
-import { BrowserContext, BrowserEvent, BrowserResponse, BrowserAdapterContext } from './declarations'
-import { Adapter, AdapterEventBuilder, AdapterOptions, EventHandler, LifecycleEventHandler, RawResponseOptions } from '@stone-js/core'
+import { IncomingBrowserEvent, IncomingBrowserEventOptions, OutgoingBrowserResponse } from '@stone-js/browser-core'
+import { BrowserContext, BrowserEvent, BrowserResponse, BrowserAdapterContext, RawBrowserResponseOptions } from './declarations'
+import { Adapter, AdapterEventBuilder, AdapterEventHandlerType, AdapterOptions, LifecycleAdapterEventHandler } from '@stone-js/core'
 
 /**
  * Browser Adapter for Stone.js.
@@ -72,7 +71,7 @@ BrowserAdapterContext
   public async run<ExecutionResultType = undefined>(): Promise<ExecutionResultType> {
     await this.onInit()
 
-    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleEventHandler<IncomingBrowserEvent, OutgoingBrowserResponse>
+    const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingBrowserEvent, OutgoingBrowserResponse>
 
     this.blueprint.get<string[]>('stone.adapter.events', []).forEach((eventName) => {
       /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
@@ -112,12 +111,16 @@ BrowserAdapterContext
    * @param executionContext - The Browser execution context for the event.
    * @returns A promise resolving to the processed `RawResponse`.
    */
-  protected async eventListener (eventHandler: EventHandler<IncomingBrowserEvent, OutgoingBrowserResponse>, rawEvent: BrowserEvent, executionContext: BrowserContext): Promise<BrowserResponse> {
+  protected async eventListener (
+    eventHandler: AdapterEventHandlerType<IncomingBrowserEvent, OutgoingBrowserResponse>,
+    rawEvent: BrowserEvent,
+    executionContext: BrowserContext
+  ): Promise<BrowserResponse> {
     const incomingEventBuilder = AdapterEventBuilder.create<IncomingBrowserEventOptions, IncomingBrowserEvent>({
       resolver: (options) => IncomingBrowserEvent.create(options)
     })
 
-    const rawResponseBuilder = AdapterEventBuilder.create<RawResponseOptions, RawResponseWrapper>({
+    const rawResponseBuilder = AdapterEventBuilder.create<RawBrowserResponseOptions, RawResponseWrapper>({
       resolver: (options) => RawResponseWrapper.create(options)
     })
 

@@ -51,8 +51,12 @@
     "prepare": "husky"
   },
   "peerDependencies": {
-    "@stone-js/core": "^0.0.36",
-    "@stone-js/pipeline": "^0.0.46"
+    "@stone-js/core": "file:/Users/evenspierre/Projects/StoneJS/core",
+    "@stone-js/pipeline": "file:/Users/evenspierre/Projects/StoneJS/pipeline",
+    "@stone-js/browser-core": "file:/Users/evenspierre/Projects/StoneJS/browser-core"
+  },
+  "dependencies": {
+    "cookie": "^1.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
@@ -83,8 +87,5 @@
       "describe",
       "beforeEach"
     ]
-  },
-  "dependencies": {
-    "cookie": "^1.0.2"
   }
 }

@@ -1,7 +1,7 @@
 import { ErrorOptions, IntegrationError } from '@stone-js/core'
 
 /**
- * Custom error for AWS Lambda adapter operations.
+ * Custom error for Browser adapter operations.
  */
 export class BrowserAdapterError extends IntegrationError {
   constructor (message: string, options?: ErrorOptions) {

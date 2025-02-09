@@ -1,4 +1,4 @@
-**AWS Lambda Adapter Documentation v0.0.2**
+**Browser Adapter Documentation v0.0.2**
 
 ***
 

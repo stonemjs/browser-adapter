@@ -1,12 +1,12 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../../README.md)
+[**Browser Adapter Documentation v0.0.2**](../../../README.md)
 
 ***
 
-[AWS Lambda Adapter Documentation](../../../modules.md) / [middleware/IncomingEventMiddleware](../README.md) / IncomingEventMiddleware
+[Browser Adapter Documentation](../../../modules.md) / [middleware/IncomingEventMiddleware](../README.md) / IncomingEventMiddleware
 
 # Class: IncomingEventMiddleware
 
-Defined in: [src/middleware/IncomingEventMiddleware.ts:13](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/middleware/IncomingEventMiddleware.ts#L13)
+Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:14](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/middleware/IncomingEventMiddleware.ts#L14)
 
 Middleware for handling incoming events and transforming them into Stone.js events.
 
@@ -19,7 +19,7 @@ headers, cookies, and more, and forwards them to the next middleware in the pipe
 
 > **new IncomingEventMiddleware**(`options`): [`IncomingEventMiddleware`](IncomingEventMiddleware.md)
 
-Defined in: [src/middleware/IncomingEventMiddleware.ts:24](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/middleware/IncomingEventMiddleware.ts#L24)
+Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:25](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/middleware/IncomingEventMiddleware.ts#L25)
 
 Create an IncomingEventMiddleware instance.
 
@@ -43,7 +43,7 @@ Options containing the blueprint for resolving configuration and dependencies.
 
 > **handle**(`context`, `next`): `Promise`\<[`BrowserAdapterResponseBuilder`](../../../declarations/type-aliases/BrowserAdapterResponseBuilder.md)\>
 
-Defined in: [src/middleware/IncomingEventMiddleware.ts:36](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/middleware/IncomingEventMiddleware.ts#L36)
+Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:37](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/middleware/IncomingEventMiddleware.ts#L37)
 
 Handles the incoming event, processes it, and invokes the next middleware in the pipeline.
 

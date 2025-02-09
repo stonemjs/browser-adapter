@@ -2,8 +2,7 @@ import { BrowserAdapter } from '../src/BrowserAdapter'
 import { RawResponseWrapper } from '../src/RawResponseWrapper'
 import { AdapterEventBuilder, AdapterOptions } from '@stone-js/core'
 import { BrowserAdapterError } from '../src/errors/BrowserAdapterError'
-import { IncomingBrowserEvent } from '../src/events/IncomingBrowserEvent'
-import { OutgoingBrowserResponse } from '../src/events/OutgoingBrowserResponse'
+import { IncomingBrowserEvent, OutgoingBrowserResponse } from '@stone-js/browser-core'
 
 vi.mock('../src/RawResponseWrapper', () => ({
   RawResponseWrapper: {

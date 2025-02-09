@@ -1,5 +1,5 @@
-import { BrowserResponse } from './declarations'
-import { IRawResponseWrapper, RawResponseOptions } from '@stone-js/core'
+import { IRawResponseWrapper } from '@stone-js/core'
+import { BrowserResponse, RawBrowserResponseOptions } from './declarations'
 
 /**
  * Wrapper for generic raw responses.
@@ -28,7 +28,7 @@ export class RawResponseWrapper implements IRawResponseWrapper<BrowserResponse> 
    * console.log(response); // { body: { message: 'Success' }, statusCode: 200 }
    * ```
    */
-  static create (options: Partial<RawResponseOptions>): RawResponseWrapper {
+  static create (options: RawBrowserResponseOptions): RawResponseWrapper {
     return new this(options)
   }
 
@@ -40,7 +40,7 @@ export class RawResponseWrapper implements IRawResponseWrapper<BrowserResponse> 
    *
    * @param options - Partial options for configuring the raw response.
    */
-  private constructor (private readonly options: Partial<RawResponseOptions>) {}
+  private constructor (private readonly options: RawBrowserResponseOptions) {}
 
   /**
    * Constructs and returns the raw response.
@@ -58,7 +58,7 @@ export class RawResponseWrapper implements IRawResponseWrapper<BrowserResponse> 
    * console.log(response); // { body: 'Hello, world!' }
    * ```
    */
-  respond (): BrowserResponse {
-    return this.options
+  async respond (): Promise<BrowserResponse> {
+    return await this.options?.render?.()
   }
 }

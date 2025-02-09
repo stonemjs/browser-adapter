@@ -1,12 +1,12 @@
-[**AWS Lambda Adapter Documentation v0.0.2**](../../README.md)
+[**Browser Adapter Documentation v0.0.2**](../../README.md)
 
 ***
 
-[AWS Lambda Adapter Documentation](../../modules.md) / [RawResponseWrapper](../README.md) / RawResponseWrapper
+[Browser Adapter Documentation](../../modules.md) / [RawResponseWrapper](../README.md) / RawResponseWrapper
 
 # Class: RawResponseWrapper
 
-Defined in: [src/RawResponseWrapper.ts:11](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/RawResponseWrapper.ts#L11)
+Defined in: [browser-adapter/src/RawResponseWrapper.ts:11](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/RawResponseWrapper.ts#L11)
 
 Wrapper for generic raw responses.
 
@@ -22,9 +22,9 @@ It implements the `IRawResponseWrapper` interface, ensuring compatibility with t
 
 ### respond()
 
-> **respond**(): [`BrowserResponse`](../../declarations/type-aliases/BrowserResponse.md)
+> **respond**(): `Promise`\<`unknown`\>
 
-Defined in: [src/RawResponseWrapper.ts:61](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/RawResponseWrapper.ts#L61)
+Defined in: [browser-adapter/src/RawResponseWrapper.ts:61](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/RawResponseWrapper.ts#L61)
 
 Constructs and returns the raw response.
 
@@ -34,7 +34,7 @@ maximum flexibility in defining its structure.
 
 #### Returns
 
-[`BrowserResponse`](../../declarations/type-aliases/BrowserResponse.md)
+`Promise`\<`unknown`\>
 
 A `RawResponse` object containing the response options.
 
@@ -56,7 +56,7 @@ console.log(response); // { body: 'Hello, world!' }
 
 > `static` **create**(`options`): [`RawResponseWrapper`](RawResponseWrapper.md)
 
-Defined in: [src/RawResponseWrapper.ts:31](https://github.com/stonemjs/browser-adapter/blob/2a6ec5410a97b6bc45328cca33b607b5a6b7ed84/src/RawResponseWrapper.ts#L31)
+Defined in: [browser-adapter/src/RawResponseWrapper.ts:31](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/RawResponseWrapper.ts#L31)
 
 Factory method to create an instance of `RawResponseWrapper`.
 
@@ -66,7 +66,7 @@ This method initializes the wrapper with a set of partial response options.
 
 ##### options
 
-`Partial`\<`RawResponseOptions`\>
+[`RawBrowserResponseOptions`](../../declarations/interfaces/RawBrowserResponseOptions.md)
 
 Partial options to configure the raw response.
 
