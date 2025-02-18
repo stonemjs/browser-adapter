@@ -8,7 +8,7 @@
 
 > **BrowserEvent**\<`T`\>: `CustomEvent`\<`T`\> \| `Event` \| `PopStateEvent`
 
-Defined in: [browser-adapter/src/declarations.ts:8](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/declarations.ts#L8)
+Defined in: [browser-adapter/src/declarations.ts:8](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/declarations.ts#L8)
 
 Represents a generic Browser event as a key-value pair.
 

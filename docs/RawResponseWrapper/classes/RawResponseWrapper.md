@@ -6,7 +6,7 @@
 
 # Class: RawResponseWrapper
 
-Defined in: [browser-adapter/src/RawResponseWrapper.ts:11](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/RawResponseWrapper.ts#L11)
+Defined in: [browser-adapter/src/RawResponseWrapper.ts:11](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/RawResponseWrapper.ts#L11)
 
 Wrapper for generic raw responses.
 
@@ -24,7 +24,7 @@ It implements the `IRawResponseWrapper` interface, ensuring compatibility with t
 
 > **respond**(): `Promise`\<`unknown`\>
 
-Defined in: [browser-adapter/src/RawResponseWrapper.ts:61](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/RawResponseWrapper.ts#L61)
+Defined in: [browser-adapter/src/RawResponseWrapper.ts:61](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/RawResponseWrapper.ts#L61)
 
 Constructs and returns the raw response.
 
@@ -56,7 +56,7 @@ console.log(response); // { body: 'Hello, world!' }
 
 > `static` **create**(`options`): [`RawResponseWrapper`](RawResponseWrapper.md)
 
-Defined in: [browser-adapter/src/RawResponseWrapper.ts:31](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/RawResponseWrapper.ts#L31)
+Defined in: [browser-adapter/src/RawResponseWrapper.ts:31](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/RawResponseWrapper.ts#L31)
 
 Factory method to create an instance of `RawResponseWrapper`.
 

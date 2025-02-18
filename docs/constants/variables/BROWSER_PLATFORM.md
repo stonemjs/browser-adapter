@@ -8,7 +8,7 @@
 
 > `const` **BROWSER\_PLATFORM**: `"browser"` = `'browser'`
 
-Defined in: [browser-adapter/src/constants.ts:8](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/constants.ts#L8)
+Defined in: [browser-adapter/src/constants.ts:8](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/constants.ts#L8)
 
 A constant representing the browser platform identifier.
 

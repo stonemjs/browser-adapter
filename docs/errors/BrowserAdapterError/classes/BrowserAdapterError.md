@@ -6,7 +6,7 @@
 
 # Class: BrowserAdapterError
 
-Defined in: [browser-adapter/src/errors/BrowserAdapterError.ts:6](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/errors/BrowserAdapterError.ts#L6)
+Defined in: [browser-adapter/src/errors/BrowserAdapterError.ts:6](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/errors/BrowserAdapterError.ts#L6)
 
 Custom error for Browser adapter operations.
 
@@ -20,7 +20,7 @@ Custom error for Browser adapter operations.
 
 > **new BrowserAdapterError**(`message`, `options`?): [`BrowserAdapterError`](BrowserAdapterError.md)
 
-Defined in: [browser-adapter/src/errors/BrowserAdapterError.ts:7](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/errors/BrowserAdapterError.ts#L7)
+Defined in: [browser-adapter/src/errors/BrowserAdapterError.ts:7](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/errors/BrowserAdapterError.ts#L7)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [browser-adapter/src/errors/BrowserAdapterError.ts:7](https://github
 
 > `readonly` `optional` **cause**: `Error`
 
-Defined in: core/dist/index.d.ts:2800
+Defined in: core/dist/index.d.ts:2837
 
 #### Inherited from
 
@@ -58,7 +58,7 @@ Defined in: core/dist/index.d.ts:2800
 
 > `readonly` `optional` **code**: `string`
 
-Defined in: core/dist/index.d.ts:2799
+Defined in: core/dist/index.d.ts:2836
 
 #### Inherited from
 
@@ -70,7 +70,7 @@ Defined in: core/dist/index.d.ts:2799
 
 > `readonly` `optional` **metadata**: `unknown`
 
-Defined in: core/dist/index.d.ts:2801
+Defined in: core/dist/index.d.ts:2838
 
 #### Inherited from
 
@@ -82,7 +82,7 @@ Defined in: core/dist/index.d.ts:2801
 
 > **toString**(`multiline`?): `string`
 
-Defined in: core/dist/index.d.ts:2822
+Defined in: core/dist/index.d.ts:2859
 
 Converts the error to a formatted string representation.
 
@@ -110,7 +110,7 @@ A formatted error string.
 
 > `static` **create**\<`T`\>(`message`, `options`?): `T`
 
-Defined in: core/dist/index.d.ts:2808
+Defined in: core/dist/index.d.ts:2845
 
 Create a RuntimeError.
 

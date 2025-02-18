@@ -6,7 +6,7 @@
 
 # Class: IncomingEventMiddleware
 
-Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:14](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/middleware/IncomingEventMiddleware.ts#L14)
+Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:14](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/middleware/IncomingEventMiddleware.ts#L14)
 
 Middleware for handling incoming events and transforming them into Stone.js events.
 
@@ -19,7 +19,7 @@ headers, cookies, and more, and forwards them to the next middleware in the pipe
 
 > **new IncomingEventMiddleware**(`options`): [`IncomingEventMiddleware`](IncomingEventMiddleware.md)
 
-Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:25](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/middleware/IncomingEventMiddleware.ts#L25)
+Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:25](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/middleware/IncomingEventMiddleware.ts#L25)
 
 Create an IncomingEventMiddleware instance.
 
@@ -43,7 +43,7 @@ Options containing the blueprint for resolving configuration and dependencies.
 
 > **handle**(`context`, `next`): `Promise`\<[`BrowserAdapterResponseBuilder`](../../../declarations/type-aliases/BrowserAdapterResponseBuilder.md)\>
 
-Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:37](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/middleware/IncomingEventMiddleware.ts#L37)
+Defined in: [browser-adapter/src/middleware/IncomingEventMiddleware.ts:37](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/middleware/IncomingEventMiddleware.ts#L37)
 
 Handles the incoming event, processes it, and invokes the next middleware in the pipeline.
 

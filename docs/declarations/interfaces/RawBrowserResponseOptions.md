@@ -6,7 +6,7 @@
 
 # Interface: RawBrowserResponseOptions
 
-Defined in: [browser-adapter/src/declarations.ts:46](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/declarations.ts#L46)
+Defined in: [browser-adapter/src/declarations.ts:46](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/declarations.ts#L46)
 
 Represents options for configuring a raw browser response.
 
@@ -27,7 +27,7 @@ for managing response rendering in the Browser.
 
 > **render**: () => `Promiseable`\<`void`\>
 
-Defined in: [browser-adapter/src/declarations.ts:50](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/declarations.ts#L50)
+Defined in: [browser-adapter/src/declarations.ts:50](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/declarations.ts#L50)
 
 The raw response object to send back to the Browser.
 

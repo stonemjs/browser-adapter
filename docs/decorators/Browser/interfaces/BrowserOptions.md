@@ -6,7 +6,7 @@
 
 # Interface: BrowserOptions
 
-Defined in: [browser-adapter/src/decorators/Browser.ts:9](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/decorators/Browser.ts#L9)
+Defined in: [browser-adapter/src/decorators/Browser.ts:9](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/decorators/Browser.ts#L9)
 
 Configuration options for the `Browser` decorator.
 These options extend the default Browser adapter configuration.
@@ -83,7 +83,7 @@ These handlers can be used to customize error handling behavior and logging.
 
 > `optional` **events**: `string`[]
 
-Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:20](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L20)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:20](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/options/BrowserAdapterBlueprint.ts#L20)
 
 Browser-specific events that the adapter should listen for.
 

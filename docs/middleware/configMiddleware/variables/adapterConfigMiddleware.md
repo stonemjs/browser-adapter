@@ -8,7 +8,7 @@
 
 > `const` **adapterConfigMiddleware**: `MetaPipe`\<`ConfigContext`\<`IBlueprint`, `ClassType`\>, `IBlueprint`\>[]
 
-Defined in: [browser-adapter/src/middleware/configMiddleware.ts:35](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/middleware/configMiddleware.ts#L35)
+Defined in: [browser-adapter/src/middleware/configMiddleware.ts:35](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/middleware/configMiddleware.ts#L35)
 
 Configuration for adapter processing middleware.
 

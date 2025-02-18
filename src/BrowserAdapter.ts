@@ -69,7 +69,7 @@ BrowserAdapterContext
    * @throws {BrowserAdapterError} If used outside the Browser environment.
    */
   public async run<ExecutionResultType = undefined>(): Promise<ExecutionResultType> {
-    await this.onInit()
+    await this.onStart()
 
     const eventHandler = this.handlerResolver(this.blueprint) as LifecycleAdapterEventHandler<IncomingBrowserEvent, OutgoingBrowserResponse>
 
@@ -93,12 +93,12 @@ BrowserAdapterContext
    *
    * @throws {BrowserAdapterError} If executed outside a Browser context (e.g., node).
    */
-  protected async onInit (): Promise<void> {
+  protected async onStart (): Promise<void> {
     if (window === undefined) {
       throw new BrowserAdapterError('This `BrowserAdapter` must be used only in Browser context.')
     }
 
-    await super.onInit()
+    await super.onStart()
   }
 
   /**

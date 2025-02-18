@@ -6,7 +6,7 @@
 
 # Interface: BrowserAdapterConfig
 
-Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:26](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L26)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:26](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/options/BrowserAdapterBlueprint.ts#L26)
 
 Represents the BrowserAdapterConfig configuration options for the application.
 
@@ -35,7 +35,7 @@ This key allow you to specify the current adapter with the alias key.
 
 > **adapters**: [`BrowserAdapterAdapterConfig`](BrowserAdapterAdapterConfig.md)[]
 
-Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:27](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L27)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:27](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/options/BrowserAdapterBlueprint.ts#L27)
 
 Adapter configurations for the application.
 
@@ -80,7 +80,7 @@ Note: It does not exist in imperative context.
 
 > **browser**: `object`
 
-Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:28](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L28)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:28](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/options/BrowserAdapterBlueprint.ts#L28)
 
 #### cookie
 

@@ -6,7 +6,7 @@
 
 # Interface: BrowserAdapterAdapterConfig
 
-Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:16](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L16)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:16](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/options/BrowserAdapterBlueprint.ts#L16)
 
 Configuration interface for the Browser Adapter.
 
@@ -86,7 +86,7 @@ These handlers can be used to customize error handling behavior and logging.
 
 > **events**: `string`[]
 
-Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:20](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L20)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:20](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/options/BrowserAdapterBlueprint.ts#L20)
 
 Browser-specific events that the adapter should listen for.
 

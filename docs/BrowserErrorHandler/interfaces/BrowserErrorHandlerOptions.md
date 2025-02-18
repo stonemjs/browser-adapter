@@ -6,7 +6,7 @@
 
 # Interface: BrowserErrorHandlerOptions
 
-Defined in: [browser-adapter/src/BrowserErrorHandler.ts:7](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserErrorHandler.ts#L7)
+Defined in: [browser-adapter/src/BrowserErrorHandler.ts:7](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/BrowserErrorHandler.ts#L7)
 
 BrowserErrorHandler options.
 
@@ -16,4 +16,4 @@ BrowserErrorHandler options.
 
 > **logger**: `ILogger`
 
-Defined in: [browser-adapter/src/BrowserErrorHandler.ts:8](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/BrowserErrorHandler.ts#L8)
+Defined in: [browser-adapter/src/BrowserErrorHandler.ts:8](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/BrowserErrorHandler.ts#L8)

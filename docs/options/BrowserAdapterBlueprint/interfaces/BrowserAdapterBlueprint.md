@@ -6,7 +6,7 @@
 
 # Interface: BrowserAdapterBlueprint
 
-Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:42](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L42)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:42](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/options/BrowserAdapterBlueprint.ts#L42)
 
 Blueprint interface for the Browser Adapter.
 
@@ -28,7 +28,7 @@ a `stone` object with an array of `BrowserAdapterConfig` items.
 
 > **stone**: [`BrowserAdapterConfig`](BrowserAdapterConfig.md)
 
-Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:43](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/options/BrowserAdapterBlueprint.ts#L43)
+Defined in: [browser-adapter/src/options/BrowserAdapterBlueprint.ts:43](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/options/BrowserAdapterBlueprint.ts#L43)
 
 Application-level settings, including environment, middleware, logging, and service registration.
 

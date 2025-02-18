@@ -8,6 +8,6 @@
 
 > **BrowserAdapterResponseBuilder**: `IAdapterEventBuilder`\<[`RawBrowserResponseOptions`](../interfaces/RawBrowserResponseOptions.md), [`RawResponseWrapper`](../../RawResponseWrapper/classes/RawResponseWrapper.md)\>
 
-Defined in: [browser-adapter/src/declarations.ts:38](https://github.com/stonemjs/browser-adapter/blob/4c992e1c0dfba4d1029b4789eb682027ed7245ee/src/declarations.ts#L38)
+Defined in: [browser-adapter/src/declarations.ts:38](https://github.com/stonemjs/browser-adapter/blob/c3427cc529e8929bb73bcc39b402c0bfd995379e/src/declarations.ts#L38)
 
 Represents the response builder for the Browser Adapter.
