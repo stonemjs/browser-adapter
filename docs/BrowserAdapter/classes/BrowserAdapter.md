@@ -105,7 +105,99 @@ BrowserAdapterContext
 >.constructor
 ```
 
+## Properties
+
+### blueprint
+
+```ts
+protected readonly blueprint: IBlueprint;
+```
+
+#### Inherited from
+
+```ts
+Adapter.blueprint
+```
+
+***
+
+### hooks
+
+```ts
+protected readonly hooks: AdapterHookType<BrowserAdapterContext, unknown>;
+```
+
+#### Inherited from
+
+```ts
+Adapter.hooks
+```
+
+***
+
+### middleware
+
+```ts
+protected readonly middleware: AdapterMixedPipeType<BrowserAdapterContext, unknown>[];
+```
+
+#### Inherited from
+
+```ts
+Adapter.middleware
+```
+
+***
+
+### resolvedErrorHandlers
+
+```ts
+protected readonly resolvedErrorHandlers: Record<string, IAdapterErrorHandler<RawEventType, RawResponseType, ExecutionContextType>>;
+```
+
+#### Inherited from
+
+```ts
+Adapter.resolvedErrorHandlers
+```
+
 ## Methods
+
+### buildRawResponse()
+
+```ts
+protected buildRawResponse(context, eventHandler?): Promise<unknown>;
+```
+
+Build the raw response.
+
+#### Parameters
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+##### eventHandler?
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+The event handler to be run.
+
+#### Returns
+
+`Promise`\<`unknown`\>
+
+The raw response wrapper.
+
+#### Inherited from
+
+```ts
+Adapter.buildRawResponse
+```
+
+***
 
 ### eventListener()
 
@@ -147,6 +239,177 @@ A promise resolving to the processed `RawResponse`.
 
 ***
 
+### executeEventHandlerHooks()
+
+```ts
+protected executeEventHandlerHooks(hook, eventHandler): Promise<void>;
+```
+
+Execute the event handler lifecycle hooks.
+
+#### Parameters
+
+##### hook
+
+`KernelHookName`
+
+The hook to execute.
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+The event handler to be run.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+```ts
+Adapter.executeEventHandlerHooks
+```
+
+***
+
+### executeHooks()
+
+```ts
+protected executeHooks(
+   name, 
+   context?, 
+error?): Promise<void>;
+```
+
+Execute adapter lifecycle hooks.
+
+#### Parameters
+
+##### name
+
+`AdapterHookName`
+
+The hook's name.
+
+##### context?
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+##### error?
+
+`any`
+
+The error to handle.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+```ts
+Adapter.executeHooks
+```
+
+***
+
+### handleError()
+
+```ts
+protected handleError(error, context): Promise<AdapterEventBuilderType<unknown>>;
+```
+
+Handle error.
+
+#### Parameters
+
+##### error
+
+`Error`
+
+The error to handle.
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+#### Returns
+
+`Promise`\<`AdapterEventBuilderType`\<`unknown`\>\>
+
+The raw response.
+
+#### Inherited from
+
+```ts
+Adapter.handleError
+```
+
+***
+
+### handleEvent()
+
+```ts
+protected handleEvent(context, eventHandler): Promise<IAdapterEventBuilder<RawResponseOptions, IRawResponseWrapper<unknown>>>;
+```
+
+Handle the event.
+
+#### Parameters
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+The event handler to be run.
+
+#### Returns
+
+`Promise`\<`IAdapterEventBuilder`\<`RawResponseOptions`, `IRawResponseWrapper`\<`unknown`\>\>\>
+
+The raw response wrapper.
+
+#### Inherited from
+
+```ts
+Adapter.handleEvent
+```
+
+***
+
+### makePipelineOptions()
+
+```ts
+protected makePipelineOptions(): PipelineOptions<BrowserAdapterContext, AdapterEventBuilderType<unknown>>;
+```
+
+Create pipeline options for the Adapter.
+
+#### Returns
+
+`PipelineOptions`\<[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md), `AdapterEventBuilderType`\<`unknown`\>\>
+
+The pipeline options for transforming the event.
+
+#### Inherited from
+
+```ts
+Adapter.makePipelineOptions
+```
+
+***
+
 ### onStart()
 
 ```ts
@@ -168,6 +431,66 @@ If executed outside a Browser context (e.g., node).
 
 ***
 
+### resolveErrorHandler()
+
+```ts
+protected resolveErrorHandler(error): IAdapterErrorHandler<BrowserEvent, unknown, Window & typeof globalThis>;
+```
+
+Get the error handler for the given error.
+
+#### Parameters
+
+##### error
+
+`Error`
+
+The error to get the handler for.
+
+#### Returns
+
+`IAdapterErrorHandler`\<[`BrowserEvent`](../../declarations/type-aliases/BrowserEvent.md), `unknown`, `Window` & *typeof* `globalThis`\>
+
+The error handler.
+
+#### Throws
+
+IntegrationError
+
+#### Inherited from
+
+```ts
+Adapter.resolveErrorHandler
+```
+
+***
+
+### resolveEventHandler()
+
+```ts
+protected resolveEventHandler(): AdapterEventHandlerType<IncomingBrowserEvent, OutgoingBrowserResponse>;
+```
+
+Get the event handler for the adapter.
+
+#### Returns
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+The event handler for the adapter.
+
+#### Throws
+
+If the event handler is missing.
+
+#### Inherited from
+
+```ts
+Adapter.resolveEventHandler
+```
+
+***
+
 ### run()
 
 ```ts
@@ -178,6 +501,9 @@ Executes the adapter and provides an Browser-compatible handler function.
 
 The `run` method initializes the adapter and listens for incoming Browser events.
 It processes these events, generates a response, and sends it back to the Browser.
+
+Idempotent: calling `run()` again tears down the previous listeners first, so HMR
+reloads and tests never accumulate duplicate handlers.
 
 #### Type Parameters
 
@@ -201,13 +527,105 @@ Adapter.run
 
 ***
 
+### sendEventThroughDestination()
+
+```ts
+protected sendEventThroughDestination(context, eventHandler): Promise<unknown>;
+```
+
+Send the raw event through the destination.
+
+#### Parameters
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The event context.
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+The event handler to be run.
+
+#### Returns
+
+`Promise`\<`unknown`\>
+
+Platform-specific response.
+
+#### Throws
+
+IntegrationError
+
+#### Inherited from
+
+```ts
+Adapter.sendEventThroughDestination
+```
+
+***
+
+### stop()
+
+```ts
+stop(): Promise<void>;
+```
+
+Tear down the adapter: remove all registered `window` listeners and run `onStop` hooks.
+
+Safe to call multiple times and when the adapter was never started.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
+### validateContextAndEventHandler()
+
+```ts
+protected validateContextAndEventHandler(context, eventHandler): void;
+```
+
+Validate the context and event handler.
+
+#### Parameters
+
+##### context
+
+[`BrowserAdapterContext`](../../declarations/type-aliases/BrowserAdapterContext.md)
+
+The context to validate.
+
+##### eventHandler
+
+`AdapterEventHandlerType`\<`IncomingBrowserEvent`, `OutgoingBrowserResponse`\>
+
+The event handler to validate.
+
+#### Returns
+
+`void`
+
+#### Throws
+
+IntegrationError
+
+#### Inherited from
+
+```ts
+Adapter.validateContextAndEventHandler
+```
+
+***
+
 ### create()
 
 ```ts
 static create(blueprint): BrowserAdapter;
 ```
-
-Creates an instance of the `BrowserAdapter`.
 
 #### Parameters
 
@@ -215,17 +633,6 @@ Creates an instance of the `BrowserAdapter`.
 
 `IBlueprint`
 
-The application blueprint.
-
 #### Returns
 
 `BrowserAdapter`
-
-A new instance of `BrowserAdapter`.
-
-#### Example
-
-```typescript
-const adapter = BrowserAdapter.create(blueprint);
-await adapter.run();
-```

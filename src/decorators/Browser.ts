@@ -1,4 +1,4 @@
-import deepmerge from 'deepmerge'
+import { cloneValue, deepMerge } from '@stone-js/config'
 import { addBlueprint, classDecoratorLegacyWrapper, ClassType } from '@stone-js/core'
 import { browserAdapterBlueprint, BrowserAdapterAdapterConfig } from '../options/BrowserAdapterBlueprint'
 
@@ -34,19 +34,14 @@ export interface BrowserOptions extends Partial<BrowserAdapterAdapterConfig> {}
  */
 export const Browser = <T extends ClassType = ClassType>(options: BrowserOptions = {}): ClassDecorator => {
   return classDecoratorLegacyWrapper<T>((target: T, context: ClassDecoratorContext<T>): undefined => {
-    // Never mutate the shared, module-level default blueprint: doing so leaked options
-    // between decorated classes and duplicated events/middleware on repeated use. Build a
-    // fresh per-decoration copy instead.
-    const defaultAdapter = browserAdapterBlueprint.stone?.adapters?.[0] ?? {}
-    const mergedAdapter = deepmerge(defaultAdapter, options)
-    const mergedBlueprint = {
-      ...browserAdapterBlueprint,
-      stone: {
-        ...browserAdapterBlueprint.stone,
-        adapters: [mergedAdapter]
-      }
+    // Clone the module-level default before merging so decorating a class never mutates the shared
+    // singleton (which leaked options between classes and duplicated events/middleware on reuse).
+    const blueprint = cloneValue(browserAdapterBlueprint)
+
+    if (blueprint.stone?.adapters?.[0] !== undefined) {
+      blueprint.stone.adapters[0] = deepMerge(blueprint.stone.adapters[0], options)
     }
 
-    addBlueprint(target, context, mergedBlueprint)
+    addBlueprint(target, context, blueprint)
   })
 }

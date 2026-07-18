@@ -1,4 +1,4 @@
-import { BROWSER_PLATFORM } from '../constants'
+import { BROWSER_PLATFORM, NAVIGATION_EVENT } from '../constants'
 import { browserAdapterResolver } from '../resolvers'
 import { CookieOptions } from '@stone-js/browser-core'
 import { BrowserErrorHandler } from '../BrowserErrorHandler'
@@ -73,7 +73,7 @@ export const browserAdapterBlueprint: BrowserAdapterBlueprint = {
         ],
         resolver: browserAdapterResolver,
         eventHandlerResolver: defaultKernelResolver,
-        events: ['popstate', '@stonejs/router.navigate'],
+        events: ['popstate', NAVIGATION_EVENT],
         errorHandlers: {
           default: { module: BrowserErrorHandler, isClass: true }
         }
