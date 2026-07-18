@@ -57,6 +57,13 @@ BrowserAdapterContext
    * await adapter.run();
    * ```
    */
+  /**
+   * Controls the lifetime of all `window` listeners registered by `run()`. Aborting it
+   * removes every listener at once (teardown), preventing leaks and duplicate handlers
+   * across HMR reloads or repeated `run()` calls.
+   */
+  private abortController?: AbortController
+
   static create (blueprint: IBlueprint): BrowserAdapter {
     return new this(blueprint)
   }
@@ -67,26 +74,47 @@ BrowserAdapterContext
    * The `run` method initializes the adapter and listens for incoming Browser events.
    * It processes these events, generates a response, and sends it back to the Browser.
    *
+   * Idempotent: calling `run()` again tears down the previous listeners first, so HMR
+   * reloads and tests never accumulate duplicate handlers.
+   *
    * @throws {BrowserAdapterError} If used outside the Browser environment.
    */
   public async run<ExecutionResultType = undefined>(): Promise<ExecutionResultType> {
     await this.onStart()
 
+    // Tear down any previous run's listeners before registering new ones.
+    await this.stop()
+
     const eventHandler = this.resolveEventHandler()
+    const abortController = new AbortController()
+    this.abortController = abortController
+
+    // Initialize the handler BEFORE listeners are active, to avoid a startup race where
+    // an event fires before onInit has run.
+    await this.executeEventHandlerHooks('onInit', eventHandler)
 
     this.blueprint.get<string[]>('stone.adapter.events', []).forEach((eventName) => {
-      /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
-      window.addEventListener(eventName, async (rawEvent: BrowserEvent) => {
-        await this.eventListener(eventHandler, rawEvent, window)
-      })
+      window.addEventListener(eventName, (rawEvent: BrowserEvent) => {
+        void this.eventListener(eventHandler, rawEvent, window)
+      }, { signal: abortController.signal })
     })
-
-    await this.executeEventHandlerHooks('onInit', eventHandler)
 
     // Execute the event handler once when the adapter starts
     await this.eventListener(eventHandler, new Event(NAVIGATION_EVENT), window)
 
     return undefined as ExecutionResultType
+  }
+
+  /**
+   * Tear down the adapter: remove all registered `window` listeners and run `onStop` hooks.
+   *
+   * Safe to call multiple times and when the adapter was never started.
+   */
+  public async stop (): Promise<void> {
+    if (this.abortController === undefined) { return }
+    this.abortController.abort()
+    this.abortController = undefined
+    await this.executeHooks('onStop')
   }
 
   /**

@@ -78,6 +78,44 @@ describe('BrowserAdapter', () => {
     expect(executeHooks).toHaveBeenCalledWith('onStart')
   })
 
+  it('stop() aborts listeners and runs onStop hooks', async () => {
+    global.window = {} as any
+    const executeHooks = vi.spyOn(adapter as any, 'executeHooks').mockResolvedValue(undefined)
+    vi.spyOn(adapter as any, 'resolveEventHandler').mockReturnValue(vi.fn())
+    vi.spyOn(adapter as any, 'executeEventHandlerHooks').mockResolvedValue(undefined)
+    vi.spyOn(adapter as any, 'eventListener').mockResolvedValue(undefined)
+    blueprint.get = vi.fn(() => [])
+    window.addEventListener = vi.fn()
+
+    await adapter.run()
+    await adapter.stop()
+
+    expect(executeHooks).toHaveBeenCalledWith('onStop')
+  })
+
+  it('stop() is safe to call when never started', async () => {
+    await expect(adapter.stop()).resolves.toBeUndefined()
+  })
+
+  it('run() is idempotent — a second run tears down the first', async () => {
+    global.window = {} as any
+    const executeHooks = vi.spyOn(adapter as any, 'executeHooks').mockResolvedValue(undefined)
+    vi.spyOn(adapter as any, 'resolveEventHandler').mockReturnValue(vi.fn())
+    vi.spyOn(adapter as any, 'executeEventHandlerHooks').mockResolvedValue(undefined)
+    vi.spyOn(adapter as any, 'eventListener').mockResolvedValue(undefined)
+    blueprint.get = vi.fn(() => ['popstate'])
+    const addEventListener = vi.fn()
+    window.addEventListener = addEventListener
+
+    await adapter.run()
+    await adapter.run()
+
+    // onStop ran between the two runs (previous listeners torn down)...
+    expect(executeHooks).toHaveBeenCalledWith('onStop')
+    // ...and each run registers the listener with an abort signal (no accumulation within a run).
+    expect(addEventListener).toHaveBeenCalledWith('popstate', expect.any(Function), expect.objectContaining({ signal: expect.anything() }))
+  })
+
   it('should handle errors and build raw response', async () => {
     const error = new Error('boom')
     const mockBuilder = vi.fn().mockResolvedValue({ statusCode: 500 })

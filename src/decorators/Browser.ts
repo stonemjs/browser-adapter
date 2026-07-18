@@ -34,12 +34,19 @@ export interface BrowserOptions extends Partial<BrowserAdapterAdapterConfig> {}
  */
 export const Browser = <T extends ClassType = ClassType>(options: BrowserOptions = {}): ClassDecorator => {
   return classDecoratorLegacyWrapper<T>((target: T, context: ClassDecoratorContext<T>): undefined => {
-    if (browserAdapterBlueprint.stone?.adapters?.[0] !== undefined) {
-      // Merge provided options with the default Browser adapter blueprint.
-      browserAdapterBlueprint.stone.adapters[0] = deepmerge(browserAdapterBlueprint.stone.adapters[0], options)
+    // Never mutate the shared, module-level default blueprint: doing so leaked options
+    // between decorated classes and duplicated events/middleware on repeated use. Build a
+    // fresh per-decoration copy instead.
+    const defaultAdapter = browserAdapterBlueprint.stone?.adapters?.[0] ?? {}
+    const mergedAdapter = deepmerge(defaultAdapter, options)
+    const mergedBlueprint = {
+      ...browserAdapterBlueprint,
+      stone: {
+        ...browserAdapterBlueprint.stone,
+        adapters: [mergedAdapter]
+      }
     }
 
-    // Add the modified blueprint to the target class.
-    addBlueprint(target, context, browserAdapterBlueprint)
+    addBlueprint(target, context, mergedBlueprint)
   })
 }
